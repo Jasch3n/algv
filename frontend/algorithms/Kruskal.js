@@ -1,4 +1,7 @@
 import KruskalGraph from "../components/KruskalGraph.js";
+import descriptions from "./Descriptions.js";
+import Navbar from "../components/Navbar.js";
+import ToggleBox from "../components/ToggleBox";
 import React from "react";
 
 class Kruskal extends React.Component{
@@ -77,10 +80,36 @@ class Kruskal extends React.Component{
                 alert("MST Construction Complete!");
             }
         }
+
+        function toggle(){
+            this.setState({popped: !this.state.popped});
+            console.log(this.state.popped);
+        }
+        const gameButtonStyleString = `transition duration-200 ease-in-out shadow border-2 hover:bg-pink-200 hover:text-white
+                                    border-gray rounded-full px-2 mx-3 font-semibold font-mono text-black`;
+
         return (
-            <div>
-                <button onClick={() => console.log(this.kruskal(this.state.nodeCount, this.state.edgeList))}> see union find result </button>
-                <button onClick={handleStateAdvance.bind(this)}>advance graph state</button>
+            <div class='w-screen'>
+                <div>
+                    {this.state.popped ? <ToggleBox toggle={toggle.bind(this)} info={descriptions[1]}/> : null}
+                </div>
+                <Navbar isBlack={true}/>
+                {/* <button onClick={() => console.log(this.kruskal(this.state.nodeCount, this.state.edgeList))}> see union find result </button> */}
+                <div>
+                    <div className="flex flex-row justify-center px-auto mx-auto pt-20">
+                        <div className={gameButtonStyleString}><button onClick={handleStateAdvance.bind(this)}>Advance Graph State</button></div>
+                        <div className={gameButtonStyleString}><button onClick={() => window.location.reload(true)}>New Graph</button></div>
+                        {/* <PopupInfo /> */}
+                        {/* <Popup modal trigger={<button>Click Me</button>}>
+                            Modal Content
+                        </Popup> */}
+                        <div className={gameButtonStyleString}>
+                            <button onClick={toggle.bind(this)} >Toggle Info</button>
+                        </div>
+                        
+                    
+                    </div>
+                </div>
                 <KruskalGraph 
                     key = {this.state.currStateIndex}
                     nodeNames = {this.nodeNames()}

@@ -23,9 +23,13 @@ class KruskalGraph extends React.Component{
 
         for(var i = 0; i < nodeNames.length; i ++)
         {
-            toBeRendered.push(
-                this.createKruskalCustomNode(nodeNames[i], (i % 2) * 100 + i * 50, (i % 2) * 100 + 200)
-            );
+            if (typeof window !== "undefined"){
+                var sequenceNum = i % 3;
+                var X = (window.innerWidth / 4) + (sequenceNum * (window.innerWidth / 5));
+                var Y = (i % 2) * (window.innerHeight / 5) + (window.innerHeight / 4);
+                toBeRendered.push(
+                    this.createKruskalCustomNode(nodeNames[i], X, Y));
+            }
         }
         return toBeRendered;
     }

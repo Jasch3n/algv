@@ -35,7 +35,7 @@ class KruskalControl extends React.Component{
 
         return (
         <div>
-            <button onClick={() => console.log(this.generateGraph(this.state.nodeCount))}> print new edge list </button> testing
+            {/* <button onClick={() => console.log(this.generateGraph(this.state.nodeCount))}> print new edge list </button> testing */}
             <Kruskal 
                 key={this.state.currStateIndex} 
                 currStateIndex={this.state.currStateIndex} 
