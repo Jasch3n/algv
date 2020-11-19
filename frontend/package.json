@@ -1,0 +1,19 @@
+{
+  "name": "algv",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.0.2",
+    "next": "10.0.2",
+    "postcss": "^8.1.8",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-flow-renderer": "^8.0.0",
+    "tailwindcss": "^2.0.1"
+  }
+}
